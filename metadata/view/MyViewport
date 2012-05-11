@@ -1,0 +1,224 @@
+{
+    "id": "ExtBox1-ext-gen8424",
+    "type": "viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "autoScroll": false,
+        "layout": "border",
+        "designer|userClassName": "MyViewport"
+    },
+    "customConfigs": [],
+    "designerId": "14d0f432-21df-435b-ad1c-72c8fc033134",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen117952",
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapsible": true,
+                "store": null,
+                "layout|flex": null,
+                "layout|region": "east",
+                "layout|split": true
+            },
+            "customConfigs": [],
+            "iconCls": "icon-linkedinstance",
+            "expanded": true,
+            "masterInstanceId": "ExtBox1-ext-gen116924"
+        },
+        {
+            "id": "ExtBox1-ext-gen40701",
+            "type": "panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 150,
+                "collapsible": true,
+                "hideCollapseTool": true,
+                "title": null,
+                "designer|userClassName": "MyPanel2",
+                "layout|region": "north",
+                "layout|split": true
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen96394",
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center"
+            },
+            "customConfigs": [],
+            "iconCls": "icon-linkedinstance",
+            "expanded": true,
+            "masterInstanceId": "ExtBox1-ext-gen40276"
+        },
+        {
+            "id": "ExtBox1-ext-gen14153",
+            "type": "panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "width": 150,
+                "layout": "vbox",
+                "collapsed": false,
+                "collapsible": true,
+                "title": "My Panel",
+                "designer|userClassName": "MyPanel7",
+                "container|align": "stretch",
+                "layout|collapseMode": null,
+                "layout|region": "west",
+                "layout|split": true
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen11666",
+                    "type": "combobox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 20,
+                        "fieldLabel": null,
+                        "designer|userClassName": "MyComboBox",
+                        "layout|flex": null
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                },
+                {
+                    "id": "ExtBox1-ext-gen131035",
+                    "type": "treepanel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "gusxmltreepanel",
+                        "width": 150,
+                        "collapsed": false,
+                        "title": "GUS XML Tree Panel",
+                        "store": "GUSXmlTreeStore",
+                        "designer|userClassName": "GUSXmlTreePanel",
+                        "designer|userAlias": "gusxmltreepanel",
+                        "layout|flex": 1
+                    },
+                    "customConfigs": [],
+                    "expanded": false,
+                    "cn": [
+                        {
+                            "id": "ExtBox1-ext-gen131054",
+                            "type": "treeview",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootVisible": false,
+                                "designer|userClassName": "MyTreeView"
+                            },
+                            "customConfigs": [],
+                            "expanded": true
+                        },
+                        {
+                            "id": "ExtBox1-ext-gen12380",
+                            "type": "treecolumn",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": false,
+                                "id": "idTreeColumn",
+                                "defaultWidth": 200,
+                                "dataIndex": "label",
+                                "flex": 1,
+                                "menuDisabled": false,
+                                "text": "",
+                                "designer|userClassName": "MyTreeColumn"
+                            },
+                            "customConfigs": [],
+                            "expanded": true,
+                            "cn": [
+                                {
+                                    "id": "ExtBox1-ext-gen16074",
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "renderer",
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "implHandler": "return unescape(value);",
+                                        "designer|userClassName": "renderer"
+                                    },
+                                    "customConfigs": [],
+                                    "iconCls": "icon-basic-function",
+                                    "expanded": true
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ExtBox1-ext-gen25442",
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGusxmltreepanelBeforeExpand",
+                                "implHandler": "console.log(p);",
+                                "name": "beforeexpand",
+                                "scope": "me",
+                                "designer|userClassName": "onGusxmltreepanelBeforeExpand"
+                            },
+                            "customConfigs": [],
+                            "expanded": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

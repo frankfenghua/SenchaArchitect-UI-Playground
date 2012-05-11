@@ -1,0 +1,21 @@
+{
+    "id": "ExtBox1-ext-gen130588",
+    "type": "panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "id": "bottom",
+        "itemId": "bottom",
+        "tpl": "Label: {label}<br>\nType: <a href=\"{type}\" target=\"_blank\">{label}</a><br> \nVersionID: {versionid}<br>",
+        "title": "Bottom Panel",
+        "designer|userClassName": "BottomPanel",
+        "designer|userAlias": "bottompanel"
+    },
+    "customConfigs": [],
+    "designerId": "3df50d93-7d24-4522-9c6c-50e7690f2393",
+    "$viewOrder": 5,
+    "expanded": true
+}

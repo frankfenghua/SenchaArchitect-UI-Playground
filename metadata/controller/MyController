@@ -1,0 +1,57 @@
+{
+    "id": "ExtBox1-ext-gen53520",
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "ExplorerPanel"
+        ],
+        "designer|userClassName": "MyController"
+    },
+    "customConfigs": [],
+    "designerId": "6e7b00f7-0aa1-4034-8d62-61684b663948",
+    "$viewOrder": 1,
+    "expanded": false,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen53664",
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTreepanelSelectionChange",
+                "implHandler": "this.getExplorerPanel().down('#explorerpanel').update(selections[0].data); \r\n//this.getCarListings().down('#myChart').store.loadData(selections[0].data.quality);",
+                "name": "selectionchange",
+                "scope": "me",
+                "designer|targetType": "Ext.tree.Panel",
+                "designer|controlQuery": "treepanel",
+                "designer|userClassName": "onTreepanelSelectionChange"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen54646",
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ExplorerPanel",
+                "selector": "explorerpanel",
+                "designer|userClassName": "ExplorerPanel"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}

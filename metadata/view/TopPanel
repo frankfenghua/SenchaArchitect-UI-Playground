@@ -1,0 +1,21 @@
+{
+    "id": "ExtBox1-ext-gen123156",
+    "type": "panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "id": "top",
+        "itemId": "top",
+        "tpl": "Text: {text}<br>\nID: <a href=\"{text}\" target=\"_blank\">{id}</a><br> \nCls: {cls}<br>\nIs Leaf: {leaf}<br>",
+        "title": "Top Panel",
+        "designer|userClassName": "TopPanel",
+        "designer|userAlias": "topPanel"
+    },
+    "customConfigs": [],
+    "designerId": "6834c5a5-9582-4ea2-96ac-2896d61e376b",
+    "$viewOrder": 6,
+    "expanded": true
+}

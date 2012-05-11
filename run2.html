@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ExtJS TreeStore, TreePanel with Twitter data - jsFiddle demo by clint_harris</title>
+
+    <!--<script type='text/javascript' src='/js/lib/ext-4.0.2a/ext-all.js'></script>-->
+
+
+    <!--<link rel="stylesheet" type="text/css" href="/css/result-light.css">-->
+
+
+    <!--<link rel="stylesheet" type="text/css" href="http://dev.sencha.com/deploy/ext-4.0.2a/resources/css/ext-all-gray.css">-->
+
+
+    <link rel="stylesheet" type="text/css" href="http://extjs.cachefly.net/ext-4.0.7-commercial/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="http://extjs.cachefly.net/ext-4.0.7-commercial/ext-all-debug.js"></script>
+
+    <style type='text/css'>
+        #usersTreePanel .demo-userNode .x-grid-cell-inner {
+            height: 30px;
+            font-size: 1.2em;
+        }
+
+        .demo-userNodeIcon {
+            height: 25px;
+            width: 25px;
+        }
+    </style>
+
+
+
+    <script type='text/javascript'>//<![CDATA[
+    window.onload=function(){
+        Ext.define('demo.UserModel', {
+            extend: 'Ext.data.Model',
+            fields: ['id', 'name', 'profile_image_url']
+        });
+
+
+        var userTreeStore = Ext.create('Ext.data.TreeStore', {
+
+            model: 'demo.UserModel',
+
+            proxy: {
+                type: 'jsonp', // Because it's a cross-domain request
+
+                url : 'https://api.twitter.com/1/lists/members.json?owner_screen_name=Sencha&slug=sencha-team&skip_status=true',
+
+                reader: {
+                    type: 'json',
+                    root: 'users' // The returned JSON will have array
+                    // of users under a "users" property
+                },
+
+                // Don't want proxy to include these params in request
+                pageParam: undefined,
+                startParam: undefined,
+                pageParam: undefined,
+                pageParam: undefined
+            },
+
+            listeners: {
+
+                // Each demo.UserModel instance will be automatically
+                // decorated with methods/properties of Ext.data.NodeInterface
+                // (i.e., a "node"). Whenever a UserModel node is appended
+                // to the tree, this TreeStore will fire an "append" event.
+                append: function( thisNode, newChildNode, index, eOpts ) {
+
+                    // If the node that's being appended isn't a root node, then we can
+                    // assume it's one of our UserModel instances that's been "dressed
+                    // up" as a node
+                    if( !newChildNode.isRoot() ) {
+
+                        // The node is a UserModel instance with NodeInterface
+                        // properties and methods added. We want to customize those
+                        // node properties  to control how it appears in the TreePanel.
+
+                        // A user "item" shouldn't be expandable in the tree
+                        newChildNode.set('leaf', true);
+
+                        // Use the model's "name" value as the text for each tree item
+                        newChildNode.set('text', newChildNode.get('name'));
+
+                        // Use the model's profile url as the icon for each tree item
+                        newChildNode.set('icon', newChildNode.get('profile_image_url'));
+                        newChildNode.set('cls', 'demo-userNode');
+                        newChildNode.set('iconCls', 'demo-userNodeIcon');
+                    }
+                }
+            }
+        });
+
+        userTreeStore.setRootNode({
+            text: 'Users',
+            leaf: false,
+            expanded: false // If this were true, the store would load itself
+            // immediately; we do NOT want that to happen
+        });
+
+        var settingsTreeStore = Ext.create('Ext.data.TreeStore', {
+            root: {
+                expanded: true,
+                children: [
+                    {
+                        text: 'Settings',
+                        leaf: false,
+                        expanded: true,
+                        children: [
+                            {
+                                text: 'System Settings',
+                                leaf: true
+                            },
+                            {
+                                text: 'Appearance',
+                                leaf: true
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+
+// Graft our userTreeStore into the settingsTreeStore. Note that the call
+// to .expand() is what triggers the userTreeStore to load its data.
+        settingsTreeStore.getRootNode().appendChild(userTreeStore.getRootNode()).expand();
+
+        Ext.create('Ext.tree.Panel', {
+            id: 'usersTreePanel',
+            title: 'Admin Control Panel',
+            renderTo: Ext.getBody(),
+            height: 300,
+            width: 300,
+            store: settingsTreeStore,
+            rootVisible: false
+        });
+    }//]]>
+
+    </script>
+
+
+</head>
+<body>
+
+
+</body>
+
+
+</html>
+
